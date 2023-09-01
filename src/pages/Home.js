@@ -21,7 +21,7 @@ function Home() {
       const lastDay = new Date(
         curDate.getFullYear(),
         curDate.getMonth() + 1,
-        0
+        1
       ).getTime();
 
       setData(
