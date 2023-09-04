@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { DiaryStateContext } from "../App";
+import { DiaryDispatchContext, DiaryStateContext } from "../App";
 import MyHeader from "../components/MyHeader";
 import { getStringDate } from "../util/date";
 import MyButton from "../components/MyButton";
@@ -53,7 +53,12 @@ function Diary() {
         <article>
           <section>
             <h4>오늘의 감정</h4>
-            <div className={["diary_img_wrapper", `diary_img_wrapper_${data.emotion}`].join(" ")}>
+            <div
+              className={[
+                "diary_img_wrapper",
+                `diary_img_wrapper_${data.emotion}`,
+              ].join(" ")}
+            >
               <img src={curEmotionData.emotion_img} />
               <div className="emotion_descript">
                 {curEmotionData.emotion_descript}
