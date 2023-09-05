@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { DiaryDispatchContext, DiaryStateContext } from "../App";
+import { DiaryStateContext } from "../App";
 import MyHeader from "../components/MyHeader";
 import { getStringDate } from "../util/date";
 import MyButton from "../components/MyButton";
@@ -11,6 +11,11 @@ function Diary() {
   const diaryList = useContext(DiaryStateContext);
   const navigate = useNavigate();
   const [data, setData] = useState();
+
+  useEffect(() => {
+    const titleElement = document.getElementsByTagName("title")[0];
+    titleElement.innerHTML = `감정 일기장 - ${id}번 일기`;
+  }, []);
 
   useEffect(() => {
     if (diaryList.length) {
